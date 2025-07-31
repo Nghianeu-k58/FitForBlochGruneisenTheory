@@ -1,3 +1,5 @@
+import os
+
 import yaml
 
 from scipy.optimize import minimize
@@ -8,6 +10,8 @@ from utils import *
 
 DEMO_DATA_PATH = "./data/demo.csv"
 CONFIG_FILE = "./configure.yaml"
+
+os.environ["PYTHONPATH"] = os.getcwd()
 
 def main():
     
@@ -23,7 +27,7 @@ def main():
     
     # paths
     data_path = str(config[Fileds.paths][Paths.dataPath])
-    output_path = str(config[Fileds.paths][Paths.outputPath])
+    # output_path = str(config[Fileds.paths][Paths.outputPath])
 
     # parameters
     thetaD_bounds = config[Fileds.parameters][Parameters.thedaD]
@@ -46,11 +50,11 @@ def main():
 
     # Loading data
     print(f"Loading data at {data_path}")
+    data_path = os.path.join(os.getcwd(), data_path)
     sub_data = read_sub_data(data_path, 0)
     fit_data = filter_rows_by_threshold(sub_data, 0, threshold)
 
     # create parameters
-
     bounds = [
         (rho0_lower_bound, rho0_upper_bound),
         (theta_lower_bound, theta_upper_bound),

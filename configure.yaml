@@ -1,6 +1,6 @@
 paths:
-  dataPath: ./data/test_data.csv
-  outputPath: ./output
+  dataPath: data/test_data.csv
+  outputPath: output
 
 parameters:
   thedaD:
