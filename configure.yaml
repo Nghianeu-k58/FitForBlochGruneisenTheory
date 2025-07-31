@@ -1,0 +1,18 @@
+paths:
+  dataPath: ./data/test_data.csv
+  outputPath: ./output
+
+parameters:
+  thedaD:
+    lowerBound: 600
+    upperBound: 1000
+  rho0:
+    lowerBound: 0
+    upperBound: 100
+  n_list: 5
+  threshold: 40
+
+minimizeparameters:
+  fit_iteration: 1000
+  displayProcess: False
+  method: ["Powell", "L-BFGS-B", "TNC","SLSQP","trust-constr"]
